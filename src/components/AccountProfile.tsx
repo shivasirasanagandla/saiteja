@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   User, 
-  Mail, 
-  Phone, 
-  Calendar, 
   MapPin, 
   Edit, 
   X, 

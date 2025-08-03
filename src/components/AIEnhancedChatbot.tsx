@@ -137,7 +137,7 @@ const ChatBody = styled.div`
   background: #f8fafc;
 `;
 
-const Message = styled(motion.div)<{ isUser: boolean; sentiment?: 'positive' | 'negative' | 'neutral' }>`
+const StyledMessage = styled(motion.div)<{ isUser: boolean; sentiment?: 'positive' | 'negative' | 'neutral' }>`
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
@@ -537,7 +537,7 @@ const AIEnhancedChatbot: React.FC<ChatbotProps> = ({ isOpen, onToggle, user }) =
 
             <ChatBody>
               {messages.map((message) => (
-                <Message key={message.id} isUser={message.isUser} sentiment={message.sentiment}>
+                <StyledMessage key={message.id} isUser={message.isUser} sentiment={message.sentiment}>
                   {!message.isUser && (
                     <Avatar isUser={false}>
                       <Bot size={16} />
@@ -577,11 +577,11 @@ const AIEnhancedChatbot: React.FC<ChatbotProps> = ({ isOpen, onToggle, user }) =
                       <User size={16} />
                     </Avatar>
                   )}
-                </Message>
+                </StyledMessage>
               ))}
 
               {isTyping && (
-                <Message isUser={false}>
+                <StyledMessage isUser={false}>
                   <Avatar isUser={false}>
                     <Bot size={16} />
                   </Avatar>
@@ -589,7 +589,7 @@ const AIEnhancedChatbot: React.FC<ChatbotProps> = ({ isOpen, onToggle, user }) =
                     <Brain size={16} />
                     AI is thinking...
                   </TypingIndicator>
-                </Message>
+                </StyledMessage>
               )}
 
               <div ref={messagesEndRef} />
