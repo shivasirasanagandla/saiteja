@@ -7,17 +7,6 @@ import {
 } from 'lucide-react';
 import ModalWrapper from './ModalWrapper';
 
-const ModalContainer = styled(motion.div)`
-  background: white;
-  border-radius: 20px;
-  max-width: 600px;
-  width: 100%;
-  max-height: 90vh;
-  position: relative;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-`;
-
 const Header = styled.div`
   background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   color: white;
@@ -272,7 +261,7 @@ interface CartModalProps {
   user: { type: 'email' | 'mobile'; value: string } | null;
 }
 
-const CartModal: React.FC<CartModalProps> = ({ 
+const CartModal: React.FC<CartModalProps> = ({
   cart, 
   setCart, 
   isOpen, 

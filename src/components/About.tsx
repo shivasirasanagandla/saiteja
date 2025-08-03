@@ -211,14 +211,6 @@ const ModalContent = styled.div`
   overflow-y: auto;
 `;
 
-const TourStep = styled.div<{ active: boolean }>`
-  padding: 1rem;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  background: ${props => props.active ? '#fef3c7' : '#f8fafc'};
-  border-left: 4px solid ${props => props.active ? '#f59e0b' : '#e2e8f0'};
-`;
-
 const About: React.FC = () => {
   const [activeTimelineItem, setActiveTimelineItem] = useState(0);
   const [showTour, setShowTour] = useState(false);
