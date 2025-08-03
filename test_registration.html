@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Test - Nature's Dairy</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 2rem;
+        }
+        .test-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        .test-section h3 {
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .validation-example {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+        }
+        .success {
+            color: #059669;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+        }
+        .error {
+            color: #dc2626;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+        }
+        .info {
+            color: #1e40af;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .feature-list li:before {
+            content: "✅ ";
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌾 Nature's Dairy - Registration System</h1>
+        
+        <div class="test-section">
+            <h3>📋 Registration Features Implemented</h3>
+            <ul class="feature-list">
+                <li><strong>Username Validation:</strong> 3-20 characters, must start with letter, alphanumeric + dots/underscores only</li>
+                <li><strong>Email Validation:</strong> Proper email format with regex validation</li>
+                <li><strong>Password Security:</strong> 8-64 characters, uppercase, lowercase, number, special character required</li>
+                <li><strong>Confirm Password:</strong> Must match password exactly</li>
+                <li><strong>Phone Validation:</strong> 10-digit Indian mobile number format</li>
+                <li><strong>Date of Birth:</strong> Age validation (minimum 13 years)</li>
+                <li><strong>Gender Selection:</strong> Radio buttons for Male/Female/Other</li>
+                <li><strong>Country/State:</strong> Dropdown with dynamic state loading</li>
+                <li><strong>Terms & Conditions:</strong> Required checkbox with links</li>
+                <li><strong>Real-time Validation:</strong> Instant feedback on form fields</li>
+                <li><strong>Database Storage:</strong> All user data stored in MySQL database</li>
+                <li><strong>Beautiful UI:</strong> Professional, responsive design</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h3>🔒 Validation Examples</h3>
+            
+            <div class="validation-example success">
+                <strong>✅ Valid Username:</strong> john_doe, user123, my.user
+            </div>
+            <div class="validation-example error">
+                <strong>❌ Invalid Username:</strong> 123user, @user, user@name
+            </div>
+            
+            <div class="validation-example success">
+                <strong>✅ Valid Email:</strong> user@example.com, john.doe@company.co.uk
+            </div>
+            <div class="validation-example error">
+                <strong>❌ Invalid Email:</strong> user@, @example.com, user.example
+            </div>
+            
+            <div class="validation-example success">
+                <strong>✅ Valid Password:</strong> MyPass123!, Secure@2024
+            </div>
+            <div class="validation-example error">
+                <strong>❌ Invalid Password:</strong> password, 123456, mypass
+            </div>
+            
+            <div class="validation-example success">
+                <strong>✅ Valid Phone:</strong> 9876543210, +919876543210
+            </div>
+            <div class="validation-example error">
+                <strong>❌ Invalid Phone:</strong> 1234567890, 987654321
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🗄️ Database Schema</h3>
+            <div class="info">
+                <strong>Users Table:</strong>
+                <ul>
+                    <li>user_id (Primary Key)</li>
+                    <li>username (Unique, 3-20 chars)</li>
+                    <li>email (Unique)</li>
+                    <li>mobile (Unique, 10 digits)</li>
+                    <li>password_hash (Encrypted)</li>
+                    <li>first_name, last_name</li>
+                    <li>date_of_birth</li>
+                    <li>gender (male/female/other)</li>
+                    <li>is_verified, is_active</li>
+                    <li>created_at, updated_at</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🚀 How to Test</h3>
+            <ol>
+                <li>Start the backend server: <code>cd backend && npm start</code></li>
+                <li>Start the frontend: <code>npm start</code></li>
+                <li>Click "Login" in the header</li>
+                <li>Click "Register" link</li>
+                <li>Fill out the registration form with valid data</li>
+                <li>Test validation by entering invalid data</li>
+                <li>Submit the form to create a new user account</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h3>🔧 API Endpoints</h3>
+            <div class="info">
+                <strong>POST /api/auth/register</strong><br>
+                <strong>Request Body:</strong>
+                <pre>{
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password": "SecurePass123!",
+  "firstName": "John",
+  "lastName": "Doe",
+  "phone": "9876543210",
+  "dateOfBirth": "1990-01-01",
+  "gender": "male",
+  "country": "India",
+  "state": "Maharashtra"
+}</pre>
+                <strong>Response:</strong>
+                <pre>{
+  "success": true,
+  "message": "User registered successfully",
+  "user_id": 1,
+  "user": {
+    "user_id": 1,
+    "username": "john_doe",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@example.com",
+    "mobile": "9876543210",
+    "date_of_birth": "1990-01-01",
+    "gender": "male"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🎨 UI Features</h3>
+            <ul class="feature-list">
+                <li>Responsive design for mobile and desktop</li>
+                <li>Real-time validation with visual feedback</li>
+                <li>Password visibility toggle</li>
+                <li>Dynamic country/state dropdowns</li>
+                <li>Professional styling with animations</li>
+                <li>Error and success message handling</li>
+                <li>Loading states during form submission</li>
+                <li>Accessible form controls</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 
