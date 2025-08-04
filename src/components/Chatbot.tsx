@@ -254,7 +254,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onToggle }) => {
   }, [messages]);
 
   const addMessage = (text: string, isUser: boolean, quickReplies?: string[]) => {
-    const newMessage: Message = {
+    const newMessage: ChatMessage = {
       id: Date.now().toString(),
       text,
       isUser,

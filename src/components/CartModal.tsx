@@ -240,21 +240,29 @@ const DeliveryInfo = styled.div`
   color: #92400e;
 `;
 
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  description?: string;
-  features?: string[];
-  badge?: string;
-  icon?: string;
-  unit?: string;
-}
-
 interface CartModalProps {
-  cart: CartItem[];
-  setCart: React.Dispatch<React.SetStateAction<CartItem[]>>;
+  cart: Array<{
+    id: number;
+    name: string;
+    price: number;
+    quantity: number;
+    description?: string;
+    features?: string[];
+    badge?: string;
+    icon?: string;
+    unit?: string;
+  }>;
+  setCart: React.Dispatch<React.SetStateAction<Array<{
+    id: number;
+    name: string;
+    price: number;
+    quantity: number;
+    description?: string;
+    features?: string[];
+    badge?: string;
+    icon?: string;
+    unit?: string;
+  }>>>;
   isOpen: boolean;
   onClose: () => void;
   onCheckout: () => void;
@@ -346,31 +354,6 @@ const CartModal: React.FC<CartModalProps> = ({
                       </QuantityControls>
                       <RemoveButton onClick={() => removeItem(item.id)}>
                         <Trash2 size={16} />
-                      </RemoveButton>
-                    </CartItem>
-                  ))}
-                </>
-              )}
-            </Content>
-
-            {cart.length > 0 && (
-              <Footer>
-                <DeliveryInfo>
-                  <Truck size={16} />
-                  Free delivery on orders above ₹200
-                </DeliveryInfo>
-                
-                <Summary>
-                  <SummaryLabel>Subtotal</SummaryLabel>
-                  <SummaryValue>₹{totalAmount.toFixed(2)}</SummaryValue>
-                </Summary>
-                
-                <Summary>
-                  <SummaryLabel>Delivery Fee</SummaryLabel>
-                  <SummaryValue>₹{deliveryFee.toFixed(2)}</SummaryValue>
-                </Summary>
-                
-                <Summary>
                   <SummaryLabel>Total</SummaryLabel>
                   <SummaryValue>₹{finalTotal.toFixed(2)}</SummaryValue>
                 </Summary>
